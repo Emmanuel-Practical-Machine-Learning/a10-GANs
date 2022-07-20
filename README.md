@@ -8,11 +8,11 @@ This assignment is based on work by Kevin Doherty, Efraim Helman, Natalie Lao, a
 This week's unit covers GANs, an architecture that builds upon the concept of generative models to create better machine generated objects via two networks working in parallel against each other. 
 
 # 0. Introduction to GANs
-![](assignment-images/a11-01.png)
+![AI generated faces](assignment-images/a11-01.png)
 
 The above images, though realistic, are entirely synthetic (check out some of the ears for example); they have been produced as a function of random noise by a generative adversarial network, or GAN. Originally proposed in 2014, GANs have come a long way to be able to produce these images. In this assignment, we’ll start from the original GAN formulation and work our way toward the current state-of-the-art GAN formulations.
 
-![](assignment-images/a11-02.png)
+![GAN structure digram](assignment-images/a11-02.png)
 
 In the original formulation of a GAN, we have two networks: the **generator** and the **discriminator**. The goal of the discriminator is to differentiate between real data from a source dataset and synthetic data produced by the generator. At the same time, the generator seeks to produce data is realistic enough to fool the discriminator. 
 
@@ -28,20 +28,20 @@ Notice how on this model builder, there are two networks defined: the Generator 
 
 The generated images should currently just be random grey patches because the generator has not yet been trained.
 
-![](assignment-images/a11-03.png)
+![fuzzy/untrained grey patch](assignment-images/a11-03.png)
 
 Click on the Train button in the Data column and let it run for a few thousand examples.  The rightmost column displays training statistics.
 
 After about 10,000 examples, your generated images should start getting "blotchy", with clear shapes beginning to appear:
 
-![](assignment-images/a11-04-natalie.png)
-![](assignment-images/a11-04-mark.png)
+![slightly trained/ blotchy imgs](assignment-images/a11-04-natalie.png)
+![slightly trained/ blotchy imgs](assignment-images/a11-04-mark.png)
 
 Notice that each image is labeled with "0" or "1" instead of 0-9 like the previous classifier examples. The percentage after "0" describes the probability with which the discriminator thinks that the image is fake/a generated image. The "1" describes the probability that it's a real image from the MNIST dataset. Green indicates that the label is correct for that image. (i.e. it really is a fake image) and red indicates that the label is incorrect for that image.
 
 After about 25,000 iterations, you should be able to see images that actually seem to resemble numbers:
 
-![](assignment-images/a11-05.png)
+![adequately trained img fuzzy numbers](assignment-images/a11-05.png)
 
 ## Problem 1
 
@@ -64,7 +64,7 @@ The Generator's input has shape [100]: it's a vector of noise sampled from a uni
 We also need the reverse of a Flatten layer to go from our flat input to a multi-dimensional output:
 This layer is called a Reshape layer.  Given an input, it will reshape it to the described shape, as long as the total number of input and output values match.
 
-![](assignment-images/a11-06.png)
+![Reshape layer](assignment-images/a11-06.png)
 
 ## Problem 2
 
@@ -79,7 +79,7 @@ Hit Train the train button and let the GAN train.
 
 Somewhat reasonable results should appear within 10-15 minutes, and you can expect results like this between iterations 200,000 and 300,000:
 
-![](assignment-images/a11-07.png)
+![model builder interface](assignment-images/a11-07.png)
 
 ## Problem 3
 Add screenshots of some results (generated examples, discriminator predictions on real and fake data, and learning curves as in the plots above).
@@ -122,7 +122,7 @@ Optional Challenge: Try to build something that can generate somewhat reasonable
 
 Hint: You may need to have this run overnight. Below are some images we were able to generate from CIFAR:
 
-![](assignment-images/a11-08.png)
+![CIFAR trained imgs](assignment-images/a11-08.png)
 
 # Submission
 Add your to this README.md file. Add images to the repository folder. Commit all files for submission and push back to GitHub Classroom.
